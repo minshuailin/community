@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.UUID;
@@ -55,16 +56,20 @@ public class AuthorizedController {
 //      System.out.println(user.getName());
 
         if(githubUser !=null){
+            //将user的信息放到数据库中
             User user = new User();
             user.setName(githubUser.getName());
-            user.setToken(UUID.randomUUID().toString());
+            String token = UUID.randomUUID().toString();
+            user.setToken(token);
             user.setAccountId(String.valueOf(githubUser.getId()));
             user.setGmtCreate(System.currentTimeMillis());
             user.setGmtModified(user.getGmtCreate());
             userMapper.insert(user);
 
-            //登录成功，创建cookie session
-            request.getSession().setAttribute("user",githubUser);
+            //设置cookie
+
+            response.addCookie(new Cookie("token",token));
+
             return "redirect:/";
         }else{
             //登录失败
