@@ -3,7 +3,7 @@ package com.msl.community.dto;
 /**
  * @Author:msl
  * @Description: Date:Created in 11:44 2019/12/14
- * <p>
+ *
  * 步骤1是请求用户的GitHub身份：
  * https://github.com/login/oauth/authorize 加上指定的参数
  *

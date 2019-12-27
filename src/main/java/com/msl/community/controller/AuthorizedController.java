@@ -55,7 +55,7 @@ public class AuthorizedController {
         GithubUser githubUser = githubProvider.getUser(accessToken);
 //      System.out.println(user.getName());
 
-        if(githubUser !=null){
+        if(githubUser !=null && githubUser.getId() != null){
             //将user的信息放到数据库中
             User user = new User();
             user.setName(githubUser.getName());
