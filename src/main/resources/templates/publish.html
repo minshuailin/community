@@ -15,7 +15,7 @@
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                 <span class="sr-only">社区</span>
             </button>
-            <a class="navbar-brand" href="#">社区</a>
+            <a class="navbar-brand" href="/">社区</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <form class="navbar-form navbar-left">
@@ -65,8 +65,10 @@
                 </div>
                 <div class="container-fluid main">
                     <div class="row">
-                        <div class="alert alert-danger col-lg-9 col-md-12 col-sm-12 col-xs-12"
-                             th:text="${error}" th:if="${error != null}"></div>
+                        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                            <div class="alert alert-danger  col-lg-12 col-md-12 col-sm-12 col-xs-12 "
+                                 th:text="${error}" th:if="${error != null}"></div>
+                        </div>
                         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
                             <button class="btn btn-success btn-publish " type="submit">发布</button>
                         </div>
