@@ -1,9 +1,10 @@
-package com.msl.community.model;
+package com.msl.community.dto;
 
+import com.msl.community.model.User;
 import lombok.Data;
 
 @Data
-public class Question {
+public class QuesetionDTO {
     private Integer id;
     //标题
     private String title;
@@ -23,5 +24,6 @@ public class Question {
     private Integer commentCount;
     //点赞数
     private Integer likeCount;
-
+    //用户
+    private User user;
 }
