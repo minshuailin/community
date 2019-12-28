@@ -1,44 +1,21 @@
 package com.msl.community.dto;
 
+import lombok.Data;
+
 /**
  * @Author:msl
  * @Description: Date:Created in 12:50 2019/12/14
  */
+@Data
 public class GithubUser {
+    //用户名
     private String name;
+    //id
     private Long id;
+    //个性签名
     private String bio;
+    //头像
+    private String avatar_url;
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getBio() {
-        return bio;
-    }
-
-    public void setBio(String bio) {
-        this.bio = bio;
-    }
-
-    @Override
-    public String toString() {
-        return "GithubUser{" +
-                "name='" + name + '\'' +
-                ", id=" + id +
-                ", bio='" + bio + '\'' +
-                '}';
-    }
 }
