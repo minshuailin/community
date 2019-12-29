@@ -1,5 +1,6 @@
 package com.msl.community.service;
 
+import com.msl.community.dto.PaginationDTO;
 import com.msl.community.dto.QuesetionDTO;
 import com.msl.community.mapper.QuestionMapper;
 import com.msl.community.mapper.UserMapper;
@@ -20,17 +21,32 @@ public class QuestionService {
     @Autowired
     private UserMapper userMapper;
 
-    public List<QuesetionDTO> list() {
-        List<Question> questionList = questionMapper.list();
-        List<QuesetionDTO> quesetionDTOList = new ArrayList<>();
+    public PaginationDTO list(Integer page, Integer size) {
+        //分页
+        PaginationDTO paginationDTO = new PaginationDTO();
+        Integer totalCount = questionMapper.count(); //问题的总数
+        paginationDTO.setPagination(totalCount,page,size);
+        if(page<1){
+            page = 1;
+        }
+        if(page>paginationDTO.getTotalPage()){
+            page = paginationDTO.getTotalPage();
+        }
+
+        //size*(page -1)
+        Integer offset = size*(page -1);
+        List<Question> questionList = questionMapper.list(offset,size);
+        List<QuesetionDTO> questionDTOList = new ArrayList<>();
+
         for(Question question :questionList){
             User user = userMapper.findById(question.getCreator());
             QuesetionDTO quesetionDTO = new QuesetionDTO();
             //把question上的属性copy到quesetionDTO上
             BeanUtils.copyProperties(question,quesetionDTO);
             quesetionDTO.setUser(user);
-            quesetionDTOList.add(quesetionDTO);
+            questionDTOList.add(quesetionDTO);
         }
-        return quesetionDTOList;
+        paginationDTO.setQuestions(questionDTOList);
+        return paginationDTO;
     }
 }
