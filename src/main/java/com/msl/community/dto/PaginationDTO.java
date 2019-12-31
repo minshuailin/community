@@ -20,14 +20,10 @@ public class PaginationDTO {
     private Integer totalPage; //总共的页数
 
     //设置查询当前页需要展示的内容
-    public void setPagination(Integer totalCount, Integer page, Integer size) {
-        if(totalCount % size == 0){
-            totalPage = totalCount /size;
-        }else {
-            totalPage = totalCount /size +1;
-        }
-
+    public void setPagination(Integer totalPage, Integer page) {
+        this.totalPage =totalPage;
         this.page = page;
+
         pages.add(page);
         for(int i = 1; i <= 3; i++){
             //第一页时，只展示3个，之后每一页都数组的个数都小于7
