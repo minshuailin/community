@@ -1,7 +1,6 @@
 body{
     background-color: #efefef;
 }
-
 .main{
     background-color: white;
     margin: 30px;
@@ -24,4 +23,8 @@ body{
 }
 .profile .section{
     margin-top: 15px;
+}
+.community-menu{
+    color: #999;
+    font-size: 13px;
 }
