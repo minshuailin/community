@@ -11,3 +11,8 @@ Lombok
 [spring web]()
 [bootstrap]()
 [github]()
+
+#bash
+mvn flyway:mirgate
+mvn -Dmybatis.generator.overwrite=true mybatis-generator:generate
+
