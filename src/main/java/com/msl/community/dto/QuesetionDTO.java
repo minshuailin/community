@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 public class QuesetionDTO {
-    private Integer id;
+    private Long id;
     //标题
     private String title;
     //描述

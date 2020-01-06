@@ -13,6 +13,6 @@ Lombok
 [github]()
 
 #bash
-mvn flyway:mirgate
+mvn flyway:migrate
 mvn -Dmybatis.generator.overwrite=true mybatis-generator:generate
 
