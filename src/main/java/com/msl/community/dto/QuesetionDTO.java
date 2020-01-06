@@ -17,7 +17,7 @@ public class QuesetionDTO {
     //修改时间
     private Long gmtModified;
     //发起人的Id
-    private Integer creator;
+    private Long creator;
     //浏览量
     private Integer viewCount;
     //评论数

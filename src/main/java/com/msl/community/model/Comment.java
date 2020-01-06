@@ -17,7 +17,7 @@ public class Comment {
      *
      * @mbg.generated Mon Jan 06 13:48:09 CST 2020
      */
-    private Long parentId;
+    private Long parentId; //当前问题的id
 
     /**
      *

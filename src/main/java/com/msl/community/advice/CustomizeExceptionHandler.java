@@ -28,6 +28,7 @@ public class CustomizeExceptionHandler {
                 resultDTO = ResultDTO.errorOf(CustomizeErrorCode.SYS_ERROR);
             }
             try {
+                response.setHeader("Content-type", "application/json;charset=UTF-8");
                 PrintWriter writer = response.getWriter();
                 writer.write(JSON.toJSONString(resultDTO));
                 writer.close();
