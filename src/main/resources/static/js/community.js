@@ -22,6 +22,7 @@ function post() {
                     var isAccept = confirm(response.message);
                     if(isAccept){
                         window.open("https://github.com/login/oauth/authorize?client_id=f786a53908a42504fb30&redirect_uri=http://localhost:8887/callback&scope=user&state=1");
+                        window.localStorage.setItem("closable",true);
                     }
                 }else {
                     alert(response.message);
