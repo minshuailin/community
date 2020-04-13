@@ -58,6 +58,7 @@
                             <div class="menu">
                                 <span class="glyphicon glyphicon-thumbs-up icon like-icon"></span>
                                 <span class="glyphicon glyphicon-comment icon comment-icon" th:data-id="${comment.id}" onclick="collapseComments(this)"></span>
+                                <span th:text="${comment.comentC}"></span>
                                 <span class="pull-right"
                                       th:text="${#dates.format(comment.gmtCreate,'yyyy-MM-dd')}"></span>
                             </div>
@@ -86,8 +87,8 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-                                    <input type="text" class="form-control" placeholder="评论一下......">
-                                    <button type="button" class="btn btn-success pull-right">评论</button>
+                                    <input type="text" class="form-control" placeholder="评论一下......" th:id="${'input-'+comment.id}">
+                                    <button type="button" class="btn btn-success pull-right" onclick="comment(this)" th:data-id="${comment.id}">评论</button>
                                 </div>
                             </div>
                         </div>

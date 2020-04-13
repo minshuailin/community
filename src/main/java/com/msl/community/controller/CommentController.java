@@ -1,7 +1,9 @@
 package com.msl.community.controller;
 
 import com.msl.community.dto.CommentCreateDTO;
+import com.msl.community.dto.CommentDTO;
 import com.msl.community.dto.ResultDTO;
+import com.msl.community.enums.CommentTypeEnum;
 import com.msl.community.exception.CustomizeErrorCode;
 import com.msl.community.model.Comment;
 import com.msl.community.model.User;
@@ -12,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Controller
 public class CommentController {
@@ -42,5 +45,12 @@ public class CommentController {
         comment.setLikeCount(0L);
         commentService.insert(comment);
         return ResultDTO.okOf();
+    }
+
+    @GetMapping(value = "/comment/{id}")
+    @ResponseBody
+    public ResultDTO<List<CommentDTO>> comments(@PathVariable("id") Long id){
+        List<CommentDTO> commentDTOS = commentService.listByTargetId(id, CommentTypeEnum.COMMENT);
+        return ResultDTO.okOf(commentDTOS);
     }
 }
